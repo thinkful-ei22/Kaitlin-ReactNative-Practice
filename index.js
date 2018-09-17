@@ -6,7 +6,7 @@ import React from 'react';
 // import ReactNative from'react-native';
 // must import Text from react-native library
 // just want Text property out of that library
-import { Text, AppRegistry } from'react-native';
+import { AppRegistry } from'react-native';
 // import the header
 import Header from './src/components/header';
 
@@ -20,7 +20,8 @@ import Header from './src/components/header';
 
 // simplify/refactor the code above
 const App = () => (
-  <Text>Some Text</Text>
+  // nest the header component
+  <Header />
 );
 
 // Render it to the device
