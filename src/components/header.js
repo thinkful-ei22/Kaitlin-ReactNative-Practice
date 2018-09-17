@@ -3,15 +3,19 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 // make a component
-const Header = () => {
+// added props as an argument
+const Header = (props) => {
   // use the style inside of the component
   const { textStyle, viewStyle } = styles;
   // apply the style to the tag, pass it in as a prop
   return (
     // wrap the text tag w/ a view. makes positioning easier
     // you can set a height on a viewtag and position the text within it
+    // refactor component so that the App decides what text to use
     <View style={viewStyle}>
-      <Text style={textStyle}>Albums!</Text>
+      {/* <Text style={textStyle}>Albums!</Text> */}
+      {/* props -> headerText passed from the index */}
+      <Text style={textStyle}>{props.headerText}</Text>
     </View>
   )
 }

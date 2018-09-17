@@ -6,9 +6,10 @@ import React from 'react';
 // import ReactNative from'react-native';
 // must import Text from react-native library
 // just want Text property out of that library
-import { AppRegistry } from'react-native';
+import { View, AppRegistry } from'react-native';
 // import the header
 import Header from './src/components/header';
+import AlbumList from './src/components/AlbumList';
 
 // Create a component
 // const App = () => {
@@ -21,7 +22,11 @@ import Header from './src/components/header';
 // simplify/refactor the code above
 const App = () => (
   // nest the header component
-  <Header />
+  // pass in the headerText as a prop
+  <View>
+    <Header headerText={'Albums'}/>
+    <AlbumList />
+  </View>
 );
 
 // Render it to the device
