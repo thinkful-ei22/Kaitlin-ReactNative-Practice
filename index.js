@@ -23,7 +23,8 @@ import AlbumList from './src/components/AlbumList';
 const App = () => (
   // nest the header component
   // pass in the headerText as a prop
-  <View>
+  // expand the component for scroll
+  <View style={{ flex: 1 }}>
     <Header headerText={'Albums'}/>
     <AlbumList />
   </View>

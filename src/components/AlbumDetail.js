@@ -1,32 +1,51 @@
 import React from 'react';
 // import Image from RN
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 import Card from './Card';
-import CardSection from './CardSection'
+import CardSection from './CardSection';
+import Button from './Button';
 
 // solely a presentational component, so this can be a functional component. do not need lifecycle methods or access to state.
 
 // destructure album item out of props
 const AlbumDetails = ({ album }) => {
   // destructure props further
-  const { title, artist, thumbnail_image } = album;
-  const { thumbnailStyle, headerContentStyle } = styles;
+  const { title, artist, thumbnail_image, image, url } = album;
+  const { 
+    thumbnailStyle, 
+    headerContentStyle, 
+    thumbnailContainerStyle,
+    headerTextStyle,
+    imageStyle
+  } = styles;
 
   return (
     <Card>
       {/* this is being passed to the card component as a child through props.children */}
       {/* <Text>{props.album.title}</Text> */}
+
       <CardSection>
-        <View>
+        <View style={thumbnailContainerStyle}>
           <Image 
             style={thumbnailStyle} 
             source={{uri: thumbnail_image}} 
           />
         </View>
         <View style={headerContentStyle}>
-          <Text>{title}</Text>
+          <Text style={headerTextStyle}>{title}</Text>
           <Text>{artist}</Text>
         </View>
+      </CardSection>
+
+      <CardSection>
+        <Image 
+          style={imageStyle}
+          source={{ uri: image }} 
+        />
+      </CardSection>
+
+      <CardSection>
+        <Button onPress={() => Linking.openURL(url)} />
       </CardSection>
 
     </Card>
@@ -38,9 +57,23 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
+  headerTextStyle: {
+    fontSize: 18
+  },
   thumbnailStyle: {
     height: 50,
     width: 50
+  },
+  thumbnailContainerStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 10,
+    marginRight: 10
+  },
+  imageStyle: {
+    height: 300,
+    flex: 1,
+    width: null
   }
 }
 
