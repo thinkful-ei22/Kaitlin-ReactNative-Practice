@@ -1,13 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import Card from './Card';
+import CardSection from './CardSection'
 
 // solely a presentational component, so this can be a functional component. do not need lifecycle methods or access to state.
 
 const AlbumDetails = (props) => {
   return (
-    <View>
-      <Text>{props.album.title}</Text>
-    </View>
+    <Card>
+      {/* this is being passed to the card component as a child through props.children */}
+      {/* <Text>{props.album.title}</Text> */}
+      <CardSection>
+        <Text>{props.album.title}</Text>
+      </CardSection>
+
+    </Card>
   )
 }
 
